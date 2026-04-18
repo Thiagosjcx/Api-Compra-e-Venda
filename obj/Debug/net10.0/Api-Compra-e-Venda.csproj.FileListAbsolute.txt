@@ -371,7 +371,6 @@ C:\Users\Pc\Documents\repos 2\Api-Compra-e-Venda\obj\Debug\net10.0\staticwebasse
 C:\Users\Pc\Documents\repos 2\Api-Compra-e-Venda\obj\Debug\net10.0\staticwebassets.development.json
 C:\Users\Pc\Documents\repos 2\Api-Compra-e-Venda\obj\Debug\net10.0\staticwebassets.build.endpoints.json
 C:\Users\Pc\Documents\repos 2\Api-Compra-e-Venda\obj\Debug\net10.0\swae.build.ex.cache
-C:\Users\Pc\Documents\repos 2\Api-Compra-e-Venda\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
 C:\Users\Pc\Documents\repos 2\Api-Compra-e-Venda\obj\Debug\net10.0\Api-Comp.4BAF9B3F.Up2Date
 C:\Users\Pc\Documents\repos 2\Api-Compra-e-Venda\obj\Debug\net10.0\Api-Compra-e-Venda.dll
 C:\Users\Pc\Documents\repos 2\Api-Compra-e-Venda\obj\Debug\net10.0\refint\Api-Compra-e-Venda.dll
