@@ -33,5 +33,6 @@ namespace Api_Compra_e_Venda.Services {
             TotalValue = dto.Quantity * dto.PricePerUnit,
             ExecutedAt = DateTime.UtcNow
         };
+
     }
 }
