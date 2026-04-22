@@ -4,18 +4,31 @@ using Api_Compra_e_Venda.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Api_Compra_e_Venda.Services {
-    public class TradeService(AppDbContext context) {
+    public class TradeService(AppDbContext context, PortfolioService portfolioService) {
+        private readonly PortfolioService _portfolioService = portfolioService;
+
         public async Task<Trade> ExecuteBuyAsync(TradeRequestDto dto) {
             var trade = CreateTrade(dto, TradeType.BUY);
+
             context.Trades.Add(trade);
+
+            _portfolioService.Buy(dto.Ticker.ToUpper(), dto.Quantity, dto.PricePerUnit);//atualizar o portifollio
+
             await context.SaveChangesAsync();
+
             return trade;
         }
 
         public async Task<Trade> ExecuteSellAsync(TradeRequestDto dto) {
+        
+            _portfolioService.Sell(dto.Ticker.ToUpper(), dto.Quantity);// se nao tem nao vende
+
             var trade = CreateTrade(dto, TradeType.SELL);
+
             context.Trades.Add(trade);
+
             await context.SaveChangesAsync();
+
             return trade;
         }
 
@@ -33,6 +46,5 @@ namespace Api_Compra_e_Venda.Services {
             TotalValue = dto.Quantity * dto.PricePerUnit,
             ExecutedAt = DateTime.UtcNow
         };
-
     }
 }
