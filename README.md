@@ -1,96 +1,166 @@
-# Teste de Lógica — C#
+A RESTful API built with C# (.NET) for managing an investment portfolio, including stock registration and trade operations (buy and sell).
 
-Esse repositório tem as minhas resoluções do teste técnico de lógica de programação.  
-Fiz todas as questões em **C#** (Console Application) no **.NET**.
-
-Tentei deixar o código limpo, tratar os casos estranhos e pensar um pouco na performance de cada solução.
+This project was created to practice backend development and simulate a real-world portfolio system where users can track assets and execute trades.
 
 ---
 
-## Sumário
+## Tech Stack
 
-1. [Como testar meu código](#como-testar-meu-codigo)
-2. [Como organizei as pastas](#como-organizei-as-pastas)
-3. [Resumo das Questões](#resumo-das-questoes)
-4. [Tecnologias](#tecnologias)
-5. [Observações](#observacoes)
+* C# (.NET)
+* ASP.NET Core Web API
+* SQL Server
+* Swagger (OpenAPI)
 
 ---
 
-## Como testar meu codigo
+## Project Structure
 
-Pra facilitar a correção, criei um menu interativo com o arquivo `menu.bat`.
+/Controllers   API endpoints (Portfolio, Stocks, Trades)
+/Models        Domain models
+/Services      Business logic
+/Data          Database context
 
-**Jeito mais fácil:**
+---
+
+## Getting Started
+
+### Clone the repository
 
 ```bash
-.\menu.bat
+git clone https://github.com/your-username/Api-Compra-e-Venda.git
+cd Api-Compra-e-Venda
 ```
 
-Ele abre um menu e já executa a questão que você escolher.
+---
 
-**Jeito manual:**
+### Configure the database
+
+Update the connection string in:
+
+appsettings.json
+
+Example:
+
+```json
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=localhost;Database=InvestmentDb;Trusted_Connection=True;"
+  }
+}
+```
+
+---
+
+### Run the application
 
 ```bash
-cd questao1
+dotnet restore
 dotnet run
 ```
 
+API will be available at:
+
+http://localhost:5000
+
+Swagger UI:
+
+http://localhost:5000/swagger
+
 ---
 
-## Como organizei as pastas
+## API Endpoints
 
-Cada questão ficou no seu próprio projeto:
+### Portfolio
 
+GET /api/portfolio
+Returns a summary of the current portfolio.
+
+---
+
+### Stocks
+
+GET /api/stocks
+POST /api/stocks
+GET /api/stocks/{id}
+PUT /api/stocks/{id}
+DELETE /api/stocks/{id}
+
+#### Example Request
+
+```json
+{
+  "symbol": "AAPL",
+  "companyName": "Apple Inc.",
+  "price": 180.50,
+  "marketCap": 2800000000000,
+  "sector": "Technology"
+}
 ```
-Teste-logica/
-├── questao1/          # Soma de pares
-├── questao2/          # Segundo maior número
-├── questao3/          # Parênteses válidos
-├── questao4/          # Two Sum
-├── questao5/          # Contagem de caracteres
-├── questao6/          # Número desaparecido
-├── bonus/             # Palíndromo
-├── menu.bat
-└── README.md
+
+#### Example Response
+
+```json
+{
+  "id": 1,
+  "symbol": "AAPL",
+  "companyName": "Apple Inc.",
+  "price": 180.50,
+  "marketCap": 2800000000000,
+  "sector": "Technology",
+  "createdAt": "2026-04-24T21:59:05.960Z"
+}
 ```
 
 ---
 
-## Resumo das questoes
+### Trades
 
-**Questão 1 — Soma de pares**  
-Soma apenas os números pares. Se só tiver números ímpares, retorna 0.
+POST /api/trades/buy
+POST /api/trades/sell
+GET /api/trades
+GET /api/trades/{id}
 
-**Questão 2 — Segundo maior número**  
-Encontra o segundo maior número distinto. Caso não exista segundo maior, retorna mensagem de erro.
+#### Example Request (Buy)
 
-**Questão 3 — Parênteses válidos**  
-Verifica se a string com `()`, `{}` e `[]` está corretamente balanceada. Utilizei a estrutura **Stack**.
+```json
+{
+  "ticker": "AAPL",
+  "quantity": 10,
+  "pricePerUnit": 150
+}
+```
 
-**Questão 4 — Two Sum**  
-Encontra as posições de dois números que somados resultam no target. Implementei uma versão otimizada.
+#### Example Response
 
-**Questão 5 — Contagem de caracteres**  
-Conta quantas vezes cada caractere aparece na string.
-
-**Questão 6 — Número desaparecido**  
-Descobre o número faltante em uma sequência de 0 até n. Utilizei a fórmula de Gauss.
-
-**Questão Bônus — Palíndromo**  
-Verifica se a palavra ou frase é um palíndromo. Ignora espaços, pontuação e diferença entre maiúsculas e minúsculas.
+```json
+{
+  "id": 1,
+  "ticker": "AAPL",
+  "quantity": 10,
+  "pricePerUnit": 150,
+  "total": 1500,
+  "type": "BUY",
+  "createdAt": "2026-04-24T22:10:00Z"
+}
+```
 
 ---
 
-## Tecnologias
+## Business Rules
 
-- C# / .NET
-- Batch Script (`menu.bat`)
+* Buying a stock increases its quantity in the portfolio
+* Selling a stock decreases its quantity
+* A sell operation cannot exceed the available quantity
+* All trades are stored for history tracking
+* Portfolio data is calculated based on executed trades
+
+### Average Price Calculation
+
+averagePrice =
+(currentQuantity * currentPrice + newQuantity * newPrice) / totalQuantity
 
 ---
 
-## Observacoes
+## Author
 
-- Cada questão está isolada no seu próprio projeto
-- Tentei tratar os casos de borda
-- O `menu.bat` facilita a correção no Windows
+Thiago Xavier
