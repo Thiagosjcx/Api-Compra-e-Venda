@@ -1,4 +1,6 @@
-Aqui está uma versão mais limpa e que deve renderizar direito no GitHub:
+O problema é o acento e a numeração nos títulos. O GitHub gera os links de um jeito específico.
+
+Aqui está a versão com os links do sumário funcionando:
 
 ```markdown
 # Teste de Lógica — C#
@@ -12,15 +14,15 @@ Tentei deixar o código limpo, tratar os casos estranhos e pensar um pouco na pe
 
 ## Sumário
 
-1. [Como testar meu código](#1-como-testar-meu-código)
-2. [Como organizei as pastas](#2-como-organizei-as-pastas)
-3. [Resumo das Questões](#3-resumo-das-questões)
-4. [Tecnologias](#4-tecnologias)
-5. [Observações](#5-observações)
+1. [Como testar meu código](#como-testar-meu-código)
+2. [Como organizei as pastas](#como-organizei-as-pastas)
+3. [Resumo das Questões](#resumo-das-questões)
+4. [Tecnologias](#tecnologias)
+5. [Observações](#observações)
 
 ---
 
-## 1. Como testar meu código
+## Como testar meu código
 
 Pra facilitar a correção, criei um menu interativo com o arquivo `menu.bat`.
 
@@ -41,7 +43,7 @@ dotnet run
 
 ---
 
-## 2. Como organizei as pastas
+## Como organizei as pastas
 
 Cada questão ficou no seu próprio projeto:
 
@@ -60,7 +62,7 @@ Teste-logica/
 
 ---
 
-## 3. Resumo das Questões
+## Resumo das Questões
 
 **Questão 1 — Soma de pares**  
 Soma apenas os números pares. Se só tiver números ímpares, retorna 0.
@@ -85,14 +87,14 @@ Verifica se a palavra ou frase é um palíndromo. Ignora espaços, pontuação e
 
 ---
 
-## 4. Tecnologias
+## Tecnologias
 
 - C# / .NET
 - Batch Script (`menu.bat`)
 
 ---
 
-## 5. Observações
+## Observações
 
 - Cada questão está isolada no seu próprio projeto
 - Tentei tratar os casos de borda
