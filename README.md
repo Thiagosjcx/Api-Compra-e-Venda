@@ -1,8 +1,3 @@
-Vamos resolver de forma definitiva. O GitHub costuma ter problema com acentos nos links.
-
-Aqui está a versão com links que funcionam:
-
-```markdown
 # Teste de Lógica — C#
 
 Esse repositório tem as minhas resoluções do teste técnico de lógica de programação.  
@@ -99,4 +94,3 @@ Verifica se a palavra ou frase é um palíndromo. Ignora espaços, pontuação e
 - Cada questão está isolada no seu próprio projeto
 - Tentei tratar os casos de borda
 - O `menu.bat` facilita a correção no Windows
-```
