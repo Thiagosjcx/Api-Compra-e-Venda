@@ -1,6 +1,6 @@
-O problema é o acento e a numeração nos títulos. O GitHub gera os links de um jeito específico.
+Vamos resolver de forma definitiva. O GitHub costuma ter problema com acentos nos links.
 
-Aqui está a versão com os links do sumário funcionando:
+Aqui está a versão com links que funcionam:
 
 ```markdown
 # Teste de Lógica — C#
@@ -14,15 +14,15 @@ Tentei deixar o código limpo, tratar os casos estranhos e pensar um pouco na pe
 
 ## Sumário
 
-1. [Como testar meu código](#como-testar-meu-código)
+1. [Como testar meu código](#como-testar-meu-codigo)
 2. [Como organizei as pastas](#como-organizei-as-pastas)
-3. [Resumo das Questões](#resumo-das-questões)
+3. [Resumo das Questões](#resumo-das-questoes)
 4. [Tecnologias](#tecnologias)
-5. [Observações](#observações)
+5. [Observações](#observacoes)
 
 ---
 
-## Como testar meu código
+## Como testar meu codigo
 
 Pra facilitar a correção, criei um menu interativo com o arquivo `menu.bat`.
 
@@ -62,7 +62,7 @@ Teste-logica/
 
 ---
 
-## Resumo das Questões
+## Resumo das questoes
 
 **Questão 1 — Soma de pares**  
 Soma apenas os números pares. Se só tiver números ímpares, retorna 0.
@@ -94,7 +94,7 @@ Verifica se a palavra ou frase é um palíndromo. Ignora espaços, pontuação e
 
 ---
 
-## Observações
+## Observacoes
 
 - Cada questão está isolada no seu próprio projeto
 - Tentei tratar os casos de borda
