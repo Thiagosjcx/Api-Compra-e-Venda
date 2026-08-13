@@ -1,168 +1,74 @@
-# Investment Portfolio API
+# Teste de Lógica — C# 🚀
 
-A RESTful API built with C# (.NET) for managing an investment portfolio, including stock registration and trade operations (buy and sell).
+Esse repositório tem as minhas resoluções do teste técnico de lógica de programação.  
+Fiz todas as questões em **C#** (Console Application) no **.NET**.
 
-This project was created to practice backend development and simulate a real-world portfolio system where users can track assets and execute trades.
-
----
-
-## Tech Stack
-
-* C# (.NET)
-* ASP.NET Core Web API
-* SQL Server
-* Swagger (OpenAPI)
+Tentei deixar o código limpo, tratar os casos estranhos e pensar um pouco na performance de cada solução.
 
 ---
 
-## Project Structure
+## 📌 Sumário
 
-/Controllers   API endpoints (Portfolio, Stocks, Trades)
-/Models        Domain models
-/Services      Business logic
-/Data          Database context
+1. [Como testar meu código](#1-como-testar-meu-código)
+2. [Como organizei as pastas](#2-como-organizei-as-pastas)
+3. [Resumo das Questões](#3-resumo-das-questões)
+4. [Tecnologias](#4-tecnologias)
+5. [Observações](#5-observações)
 
 ---
 
-## Getting Started
+## 1. Como testar meu código
 
-### Clone the repository
+Pra facilitar a correção, criei um menu interativo com o arquivo `menu.bat`.
+
+### Jeito mais fácil
+
+Dê dois cliques no `menu.bat` ou rode no terminal:
 
 ```bash
-git clone https://github.com/your-username/Api-Compra-e-Venda.git
-cd Api-Compra-e-Venda
-```
-
----
-
-### Configure the database
-
-Update the connection string in:
-
-appsettings.json
-
-Example:
-
-```json
-{
-  "ConnectionStrings": {
-    "DefaultConnection": "Server=localhost;Database=InvestmentDb;Trusted_Connection=True;"
-  }
-}
-```
-
----
-
-### Run the application
-
-```bash
-dotnet restore
+.\menu.bat
+Ele abre um menu e já executa a questão que você escolher.
+Jeito manual
+Bashcd questao1
 dotnet run
-```
 
-API will be available at:
+2. Como organizei as pastas
+Cada questão ficou no seu próprio projeto:
+text📁 Teste-logica/
+ ├── 📁 questao1/          # Soma de pares
+ ├── 📁 questao2/          # Segundo maior número
+ ├── 📁 questao3/          # Parênteses válidos
+ ├── 📁 questao4/          # Two Sum
+ ├── 📁 questao5/          # Contagem de caracteres
+ ├── 📁 questao6/          # Número desaparecido
+ ├── 📁 bonus/             # Palíndromo
+ ├── 📄 menu.bat
+ └── 📄 README.md
 
-http://localhost:5000
+3. Resumo das Questões
+Questão 1 — Soma de pares
+Soma só os números pares. Se só tiver ímpar, retorna 0.
+Questão 2 — Segundo maior número
+Acha o segundo maior número (sem repetir). Se não tiver, mostra erro.
+Questão 3 — Parênteses válidos
+Verifica se (), {} e [] estão balanceados (usei Stack).
+Questão 4 — Two Sum
+Acha as posições de dois números que somam o target (versão otimizada).
+Questão 5 — Contagem de caracteres
+Conta quantas vezes cada letra aparece na string.
+Questão 6 — Número desaparecido
+Descobre o número que está faltando de 0 até n (usei Gauss).
+Questão Bônus — Palíndromo
+Verifica se a palavra/frase é um palíndromo (ignorando espaços, pontuação e maiúscula/minúscula).
 
-Swagger UI:
+4. Tecnologias
 
-http://localhost:5000/swagger
+C# / .NET
+Batch Script (menu.bat)
 
----
 
-## API Endpoints
+5. Observações
 
-### Portfolio
-
-GET /api/portfolio
-Returns a summary of the current portfolio.
-
----
-
-### Stocks
-
-GET /api/stocks
-POST /api/stocks
-GET /api/stocks/{id}
-PUT /api/stocks/{id}
-DELETE /api/stocks/{id}
-
-#### Example Request
-
-```json
-{
-  "symbol": "AAPL",
-  "companyName": "Apple Inc.",
-  "price": 180.50,
-  "marketCap": 2800000000000,
-  "sector": "Technology"
-}
-```
-
-#### Example Response
-
-```json
-{
-  "id": 1,
-  "symbol": "AAPL",
-  "companyName": "Apple Inc.",
-  "price": 180.50,
-  "marketCap": 2800000000000,
-  "sector": "Technology",
-  "createdAt": "2026-04-24T21:59:05.960Z"
-}
-```
-
----
-
-### Trades
-
-POST /api/trades/buy
-POST /api/trades/sell
-GET /api/trades
-GET /api/trades/{id}
-
-#### Example Request (Buy)
-
-```json
-{
-  "ticker": "AAPL",
-  "quantity": 10,
-  "pricePerUnit": 150
-}
-```
-
-#### Example Response
-
-```json
-{
-  "id": 1,
-  "ticker": "AAPL",
-  "quantity": 10,
-  "pricePerUnit": 150,
-  "total": 1500,
-  "type": "BUY",
-  "createdAt": "2026-04-24T22:10:00Z"
-}
-```
-
----
-
-## Business Rules
-
-* Buying a stock increases its quantity in the portfolio
-* Selling a stock decreases its quantity
-* A sell operation cannot exceed the available quantity
-* All trades are stored for history tracking
-* Portfolio data is calculated based on executed trades
-
-### Average Price Calculation
-
-averagePrice =
-(currentQuantity * currentPrice + newQuantity * newPrice) / totalQuantity
-
----
-
-## Author
-
-Thiago Xavier
+Cada questão está isolada no seu projeto
+Tentei tratar os casos de borda
+O menu.bat é só pra facilitar a correção no Windows
